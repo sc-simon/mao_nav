@@ -10,7 +10,7 @@ export const mockData = {
           "id": "site-1786088522624",
           "name": "网盘搜索",
           "url": "https://ps.81669996.xyz",
-          "description": "",
+          "description": "网盘资源搜索",
           "icon": ""
         },
         {
@@ -38,7 +38,7 @@ export const mockData = {
           "id": "linux-do",
           "name": "DNS",
           "url": "https://dns.81669996.xyz",
-          "description": "",
+          "description": "个人DNS记录更改",
           "icon": ""
         },
         {
@@ -524,7 +524,7 @@ export const mockData = {
       ]
     }
   ],
-  "title": "西蒙个人导航",
+  "title": "猫猫导航🐱",
   "search": "bing",
   "icp": ""
 }
