@@ -55,7 +55,7 @@
       <!-- 左侧边栏底部信息 -->
       <div class="sidebar-footer">
         <a
-          href="https://github.com/maodeyu180/mao_nav"
+          :href="githubRepoUrl"
           target="_blank"
           rel="noopener noreferrer"
           class="github-link"
@@ -206,6 +206,8 @@ import bingLogo from '@/assets/bing.png'
 import duckLogo from '@/assets/duck.png'
 // 导入GitHub logo
 import githubLogo from '@/assets/github.png'
+
+const githubRepoUrl = `https://github.com/${import.meta.env.VITE_GITHUB_OWNER || 'sc-simon'}/${import.meta.env.VITE_GITHUB_REPO || 'mao_nav'}`
 
 // 使用导航API
 const { categories, title, icpNumber, defaultSearchEngine, loading, error, fetchCategories } = useNavigation()
@@ -393,7 +395,7 @@ const scrollToCategoryMobile = (categoryId) => {
 
 // 打开GitHub项目页面
 const openGitHub = () => {
-  window.open('https://github.com/maodeyu180/mao_nav', '_blank')
+  window.open(githubRepoUrl, '_blank')
 }
 
 // 组件挂载时获取数据

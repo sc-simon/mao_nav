@@ -11,7 +11,8 @@ const scopedDataPath = owner && repo ? `./user_data/${owner}__${repo}.js` : ''
 // 完整版使用“所有者 + 仓库名”的专属文件；静态版可以使用 user_data.js。
 // Vite 构建时如果都找不到，会自动回退到上游默认数据。
 const userDataModules = import.meta.glob(['./user_data.js', './user_data/*.js'], { eager: true })
-const userDataModule = userDataModules[scopedDataPath] ?? userDataModules['./user_data.js']
+const legacyUserDataModule = Object.entries(userDataModules).find(([path]) => path.startsWith('./user_data/') && path !== './user_data.js')?.[1]
+const userDataModule = userDataModules[scopedDataPath] ?? userDataModules['./user_data.js'] ?? legacyUserDataModule
 
 export const mockData = userDataModule?.mockData ?? defaultMockData
 export const isUsingUserData = Boolean(userDataModule?.mockData)

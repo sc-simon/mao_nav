@@ -13,6 +13,7 @@ export function clearAuthToken() {
 
 // Repo config from frontend env vars (not sensitive)
 const STATIC_USER_DATA_PATH = 'src/mock/user_data.js'
+const LEGACY_USER_DATA_PATH = 'src/mock/user_data/maodeyu180__mao_nav.js'
 const USER_DATA_DIRECTORY = 'src/mock/user_data'
 const DEFAULT_DATA_PATH = 'src/mock/mock_data.js'
 
@@ -107,17 +108,34 @@ export function useGitHubAPI() {
   // 优先读取仓库专属数据；再回退到静态版用户文件和旧 Fork 的原数据文件。
   const loadCategoriesFromGitHub = async () => {
     const userDataPath = getUserDataPath()
-    const scopedUserFile = await getFileContent(userDataPath, false, true)
-    const staticUserFile = scopedUserFile.exists === false
-      ? await getFileContent(STATIC_USER_DATA_PATH, false, true)
-      : { exists: false }
-    const file = scopedUserFile.exists !== false
-      ? scopedUserFile
-      : staticUserFile.exists !== false
-        ? staticUserFile
-        : await getFileContent(DEFAULT_DATA_PATH)
+    const candidatePaths = [
+      userDataPath,
+      LEGACY_USER_DATA_PATH,
+      STATIC_USER_DATA_PATH,
+      DEFAULT_DATA_PATH,
+    ]
+
+    let file = null
+    for (const path of candidatePaths) {
+      const candidate = await getFileContent(path, false, true)
+      if (candidate.exists !== false) {
+        file = candidate
+        break
+      }
+    }
+
+    if (!file) {
+      file = await getFileContent(DEFAULT_DATA_PATH)
+    }
+
     const data = parseDataFile(file)
-    const dataSource = file === scopedUserFile ? 'scoped-user' : file === staticUserFile ? 'static-user' : 'default'
+    const dataSource = file.path === userDataPath
+      ? 'scoped-user'
+      : file.path === LEGACY_USER_DATA_PATH
+        ? 'legacy-user'
+        : file.path === STATIC_USER_DATA_PATH
+          ? 'static-user'
+          : 'default'
 
     return {
       ...data,

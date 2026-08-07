@@ -6,13 +6,13 @@
   "type": "module",
   "author": "Your Name <your.email@example.com>",
   "license": "MIT",
-  "homepage": "https://github.com/your-username/mao_nav#readme",
+  "homepage": "https://github.com/sc-simon/mao_nav#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/your-username/mao_nav.git"
+    "url": "git+https://github.com/sc-simon/mao_nav.git"
   },
   "bugs": {
-    "url": "https://github.com/your-username/mao_nav/issues"
+    "url": "https://github.com/sc-simon/mao_nav/issues"
   },
   "keywords": [
     "navigation",

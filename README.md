@@ -156,7 +156,7 @@ VITE_GITHUB_BRANCH=master
 1. **克隆项目**
 
 ```bash
-git clone https://github.com/your-username/mao_nav.git
+git clone https://github.com/sc-simon/mao_nav.git
 cd mao_nav
 ```
 
@@ -409,8 +409,8 @@ git merge upstream/master
 
 如果你有任何问题或建议，欢迎通过以下方式联系：
 
-- 提交 [Issue](https://github.com/maodeyu180/mao_nav/issues)
-- 发起 [Discussion](https://github.com/maodeyu180/mao_nav/discussions)
+- 提交 [Issue](https://github.com/sc-simon/mao_nav/issues)
+- 发起 [Discussion](https://github.com/sc-simon/mao_nav/discussions)
 - 加入 QQ 交流群：**494775899**（部署问题求助 / 使用交流）
 
 ---
