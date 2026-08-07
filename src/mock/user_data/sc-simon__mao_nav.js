@@ -7,6 +7,13 @@ export const mockData = {
       "order": 0,
       "sites": [
         {
+          "id": "site-1786088522624",
+          "name": "网盘搜索",
+          "url": "https://ps.81669996.xyz",
+          "description": "",
+          "icon": ""
+        },
+        {
           "id": "site-1778929068955",
           "name": "猫图 AI",
           "url": "https://catsapi.com",
@@ -517,7 +524,7 @@ export const mockData = {
       ]
     }
   ],
-  "title": "西蒙自用导航",
+  "title": "猫猫导航🐱",
   "search": "bing",
   "icp": ""
 }
