@@ -22,8 +22,8 @@ export const mockData = {
         },
         {
           "id": "site-1752649007053",
-          "name": "BeJson",
-          "url": "https://www.bejson.com/",
+          "name": "在线影视",
+          "url": "https://tvb.simon.nyc.mn/",
           "description": "工具大全",
           "icon": "/sitelogo/www.bejson.com.ico"
         },
@@ -36,10 +36,10 @@ export const mockData = {
         },
         {
           "id": "linux-do",
-          "name": "Linux.do",
-          "url": "https://linux.do",
-          "description": "Linux技术社区，Peace and Love",
-          "icon": "/sitelogo/linux.do.ico"
+          "name": "DNS",
+          "url": "https://dns.81669996.xyz",
+          "description": "",
+          "icon": ""
         },
         {
           "id": "site-1752857783656",
