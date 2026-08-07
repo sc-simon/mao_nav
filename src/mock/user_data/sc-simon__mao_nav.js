@@ -24,8 +24,8 @@ export const mockData = {
           "id": "site-1752649007053",
           "name": "在线影视",
           "url": "https://tvb.simon.nyc.mn/",
-          "description": "工具大全",
-          "icon": "/sitelogo/www.bejson.com.ico"
+          "description": "在线电视剧，电影，纪录片等",
+          "icon": ""
         },
         {
           "id": "curlconverter",
