@@ -27,6 +27,31 @@ function encodePath(path) {
     .join('/')
 }
 
+function normalizeBase64(base64) {
+  return (base64 || '').replace(/[\r\n\s]/g, '')
+}
+
+function decodeBase64Utf8(base64) {
+  const normalized = normalizeBase64(base64)
+  if (!normalized) return ''
+
+  const binary = atob(normalized)
+  const bytes = Uint8Array.from(binary, (char) => char.charCodeAt(0))
+  return new TextDecoder().decode(bytes)
+}
+
+function encodeUtf8ToBase64(text) {
+  const bytes = new TextEncoder().encode(text)
+  let binary = ''
+  const chunkSize = 0x8000
+
+  for (let i = 0; i < bytes.length; i += chunkSize) {
+    binary += String.fromCharCode(...bytes.subarray(i, i + chunkSize))
+  }
+
+  return btoa(binary)
+}
+
 async function githubFetch(url, options, timeoutMs = 15000) {
   const controller = new AbortController()
   const timeoutId = setTimeout(() => controller.abort(), timeoutMs)
@@ -76,10 +101,7 @@ const actions = {
 
     let content = data.content
     if (!isBinary) {
-      const raw = atob(data.content)
-      content = decodeURIComponent(
-        raw.split('').map((char) => `%${char.charCodeAt(0).toString(16).padStart(2, '0')}`).join(''),
-      )
+      content = decodeBase64Utf8(data.content)
     }
 
     return { exists: true, content, sha: data.sha, path: data.path }
@@ -87,9 +109,7 @@ const actions = {
 
   async updateFile({ path, content, message, sha }, token, { owner, repo, branch }) {
     const url = `${GITHUB_API_BASE}/repos/${owner}/${repo}/contents/${encodePath(path)}`
-    const base64Content = btoa(
-      encodeURIComponent(content).replace(/%([0-9A-F]{2})/g, (_, hex) => String.fromCharCode(`0x${hex}`)),
-    )
+    const base64Content = encodeUtf8ToBase64(content)
     const requestBody = { message, content: base64Content, branch }
     if (sha) requestBody.sha = sha
 
