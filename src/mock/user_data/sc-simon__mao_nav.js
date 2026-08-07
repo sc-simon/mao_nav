@@ -524,7 +524,7 @@ export const mockData = {
       ]
     }
   ],
-  "title": "西蒙自用导航",
+  "title": "猫猫导航🐱",
   "search": "bing",
   "icp": ""
 }
