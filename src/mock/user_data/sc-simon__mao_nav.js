@@ -11,7 +11,21 @@ export const mockData = {
           "name": "网盘搜索",
           "url": "https://ps.81669996.xyz",
           "description": "网盘资源搜索",
-          "icon": ""
+          "icon": "https://www.faviconextractor.com/favicon/ps.81669996.xyz"
+        },
+        {
+          "id": "site-1752649007053",
+          "name": "在线影视",
+          "url": "https://tvb.simon.nyc.mn/",
+          "description": "在线电视剧，电影，纪录片等",
+          "icon": "https://www.faviconextractor.com/favicon/tvb.simon.nyc.mn"
+        },
+        {
+          "id": "linux-do",
+          "name": "DNS",
+          "url": "https://dns.81669996.xyz",
+          "description": "个人DNS记录更改",
+          "icon": "https://www.faviconextractor.com/favicon/dns.81669996.xyz"
         },
         {
           "id": "site-1778929068955",
@@ -21,25 +35,11 @@ export const mockData = {
           "icon": "https://www.faviconextractor.com/favicon/catsapi.com"
         },
         {
-          "id": "site-1752649007053",
-          "name": "在线影视",
-          "url": "https://tvb.simon.nyc.mn/",
-          "description": "在线电视剧，电影，纪录片等",
-          "icon": ""
-        },
-        {
           "id": "curlconverter",
           "name": "curl converter",
           "url": "https://curlconverter.com/",
           "description": "curl命令转换工具",
           "icon": "/sitelogo/curlconverter.com.ico"
-        },
-        {
-          "id": "linux-do",
-          "name": "DNS",
-          "url": "https://dns.81669996.xyz",
-          "description": "个人DNS记录更改",
-          "icon": ""
         },
         {
           "id": "site-1752857783656",
